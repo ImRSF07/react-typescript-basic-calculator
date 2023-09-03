@@ -14,7 +14,7 @@ function App() {
         <ResultField />
         <ButtonContainers />
       </div>
-    </CalculatorProvider>
+    </CalculatorProvider> 
   );
 }
 
