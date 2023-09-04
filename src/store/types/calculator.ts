@@ -1,5 +1,7 @@
 const types = {
-  ADD_INPUT: 'ADD_INPUT',
+  INPUT_VALUE: 'INPUT_VALUE',
+  CLEAR_VALUES: 'CLEAR_VALUES',
+  ADD_VALUES: 'ADD_VALUES',
 };
 
 
