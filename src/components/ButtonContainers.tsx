@@ -1,8 +1,8 @@
+import styles from '../css/ButtonContainers.module.css';
+
 import Button from './Button';
 
 import useCalculator from '../context/CalculatorContext';
-
-import styles from '../css/ButtonContainers.module.css';
 
 type CalculatorFields = {
   display: string;
@@ -11,7 +11,7 @@ type CalculatorFields = {
 }[];
 
 const ButtonContainers = () => {
-  const { inputValue, clearValues, addValues } = useCalculator();
+  const { inputValue, clearValues } = useCalculator();
 
   const calculatorFields: CalculatorFields = [
     { display: '1', inputType: 'number', click: inputValue },
