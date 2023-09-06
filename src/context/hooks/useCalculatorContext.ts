@@ -3,6 +3,8 @@ import { useReducer } from 'react';
 import calculatorReducer, { StateType } from '../../store/reducers/calculator';
 import types from '../../store/types/calculator';
 
+import { add, subtract, multiply, divide } from '../../utils/utils';
+
 type Operators = '+' | '-' | '*' | '/';
 
 const useCalculatorContext = (initState: StateType) => {
@@ -16,15 +18,25 @@ const useCalculatorContext = (initState: StateType) => {
     if (operator === '+') {
       if (expression.includes('+')) {
         const numbers = expression.split('+').map((val) => parseInt(val));
-        result = numbers
-          .reduce((prev, cur) => {
-            const result = prev + cur;
-            if (Number.isNaN(result)) {
-              return prev;
-            }
-            return result;
-          })
-          .toString();
+        result = add(numbers);
+      }
+    }
+    if (operator === '-') {
+      if (expression.includes('-')) {
+        const numbers = expression.split('-').map((val) => parseInt(val));
+        result = subtract(numbers);
+      }
+    }
+    if (operator === '*') {
+      if (expression.includes('*')) {
+        const numbers = expression.split('*').map((val) => parseInt(val));
+        result = multiply(numbers);
+      }
+    }
+    if (operator === '/') {
+      if (expression.includes('/')) {
+        const numbers = expression.split('/').map((val) => parseInt(val));
+        result = divide(numbers);
       }
     }
     return result;
@@ -32,14 +44,26 @@ const useCalculatorContext = (initState: StateType) => {
 
   const actions = {
     inputValue: (value: string) => {
-      const expression = state.result + value;
-      const previewResult = evaluateExpression('+', expression);
+      let expression = state.result + value;
+      let previewResult: string = '';
+      if (expression.includes('+')) {
+        previewResult = evaluateExpression('+', expression);
+      }
+
+      if (expression.includes('-')) {
+        previewResult = evaluateExpression('-', expression);
+      }
+
+      // 1+1-2 = 0
 
       dispatch({
         type: types.INPUT_VALUE,
         payload: {
           result: value,
-          previewResult: Number.isNaN(previewResult) ? '' : previewResult,
+          previewResult:
+            Number.isNaN(previewResult) || previewResult === '0'
+              ? ''
+              : previewResult,
         },
       });
     },
