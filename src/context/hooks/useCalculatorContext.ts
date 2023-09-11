@@ -54,6 +54,43 @@ const useCalculatorContext = (initState: StateType) => {
         previewResult = evaluateExpression('-', expression);
       }
 
+      const calculate = (values) => {
+        let numbers = [];
+        // for ordering
+        if (!['/', '*'].every((operator) => values.includes(operator))) {
+          // only + and - operators
+          values.forEach((val, index) => {
+            if (val === '+') {
+              numbers.unshift(
+                parseInt(values[index - 1]),
+                parseInt(values[index + 1])
+              );
+            } else if (val === '-') {
+              numbers.push(val, values[index + 1]);
+            }
+          });
+          values = numbers.reduce((prev, curr) => prev + curr);
+          numbers = [];
+          for (let i = 0; i < values.length; i++) {
+            numbers.push(values[i]);
+          }
+        }
+        values = numbers
+        if (!['/', '*', '+'].every((operator) => values.includes(operator))) {
+          // only + and - operators
+          values.forEach((val, index) => {
+            if (val === '+') {
+              numbers.unshift(
+                parseInt(values[index - 1]),
+                parseInt(values[index + 1])
+              );
+            }
+          });
+          numbers = numbers.reduce((prev, curr) => prev - curr);
+        }
+        return numbers;
+      };
+
       // 1+1-2 = 0
 
       dispatch({
