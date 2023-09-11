@@ -55,6 +55,7 @@ const useCalculatorContext = (initState: StateType) => {
       }
 
       const calculate = (values) => {
+        // JS Online compiler: https://onecompiler.com/javascript/3zm8rsx2e
         let numbers = [];
         // for ordering
         if (!['/', '*'].every((operator) => values.includes(operator))) {
