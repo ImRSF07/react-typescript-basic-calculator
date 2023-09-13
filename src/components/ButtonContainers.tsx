@@ -11,7 +11,7 @@ type CalculatorFields = {
 }[];
 
 const ButtonContainers = () => {
-  const { inputValue, clearValues } = useCalculator();
+  const { inputValue, clearValues, calculateResult } = useCalculator();
 
   const calculatorFields: CalculatorFields = [
     { display: '1', inputType: 'number', click: inputValue },
@@ -28,7 +28,7 @@ const ButtonContainers = () => {
     { display: '-', inputType: 'number', click: inputValue },
     { display: '*', inputType: 'number', click: inputValue },
     { display: '/', inputType: 'number', click: inputValue },
-    { display: '=', inputType: 'number', click: inputValue },
+    { display: '=', inputType: 'number', click: calculateResult },
     { display: 'C', inputType: 'number', click: clearValues },
   ];
 

@@ -2,7 +2,7 @@ import types from '../types/calculator';
 
 export type StateType = {
   result: string;
-  previewResult: string | unknown;
+  previewResult: string;
   error: string;
 };
 
@@ -33,10 +33,24 @@ const calculatorReducer = (
       return {
         ...state,
         result: state.result + action.payload?.result,
-        previewResult: action.payload?.previewResult,
+        previewResult: String(action.payload?.previewResult),
       };
     case types.CLEAR_VALUES:
       return { ...state, result: '', previewResult: '' };
+    case types.CALCULATE_RESULT: {
+      let updatedResult = '';
+      if (state.previewResult) {
+        updatedResult = state.previewResult;
+      } else {
+        updatedResult = state.result;
+      }
+      return {
+        ...state,
+        result: updatedResult,
+        previewResult: '',
+      };
+    }
+
     case types.CLEAR_ERRORS:
       return { ...state, error: '' };
 
