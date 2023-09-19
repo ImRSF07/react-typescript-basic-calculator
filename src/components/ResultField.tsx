@@ -5,7 +5,7 @@ import useCalculator from '../context/CalculatorContext';
 const ResultField = () => {
   const { state } = useCalculator();
 
-  return <input className={styles.result_field} type='text' value={state.result} />;
+  return <h2 className={styles.result_field}>{state.result || ' '}</h2>;
 };
 
 export default ResultField;

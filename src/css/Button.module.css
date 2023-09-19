@@ -1,11 +1,32 @@
-.number {
-    color: black
+button {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: black;
+    font-size: 25px;
+    margin: 0.25rem 0;
+    border: none;
+    cursor: pointer;
 }
 
-.operator {
-    color: darkgreen
+.NUMBER, .EQUALS {
+    color: white
 }
 
-.clear {
+.OPERATOR, .CLEAR, .EQUALS {
+    font-size: 35px;
+}
+
+.OPERATOR {
+    color: rgb(0, 254, 0)
+    
+}
+
+.CLEAR {
     color: red
+}
+
+.EQUALS {
+    background-color: rgb(0, 254, 0);
+    
 }

@@ -1,8 +1,10 @@
 import buttonStyles from '../css/Button.module.css';
 
+import { InputTypes } from '../types/types';
+
 type PropsType = {
   text: string;
-  inputType: 'number' | 'operator' | 'clear';
+  inputType: keyof InputTypes;
   onClick: () => void;
 };
 

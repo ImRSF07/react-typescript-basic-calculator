@@ -16,6 +16,9 @@ const useCalculatorContext = (initState: StateType) => {
 
       if (!['+', '-', '*', '/', '='].includes(value)) {
         previewResult = evaluate(expression);
+        if ((previewResult as unknown) === Infinity) {
+          previewResult = '0';
+        }
       }
 
       dispatch({

@@ -24,8 +24,10 @@ const Calculator = () => {
   return (
     <div className={styles['main-wrapper']}>
       <Header />
-      <ResultField />
-      <PreviewResultField />
+      <section className={styles['results__container']}>
+        <ResultField />
+        <PreviewResultField />
+      </section>
       <ButtonContainers />
     </div>
   );
