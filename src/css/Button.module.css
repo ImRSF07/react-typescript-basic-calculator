@@ -1,7 +1,6 @@
 button {
     height: 100px;
     width: 100px;
-    border-radius: 50%;
     background-color: black;
     font-size: 25px;
     margin: 0.25rem 0;
@@ -11,6 +10,10 @@ button {
 
 .NUMBER, .EQUALS {
     color: white
+}
+
+.EQUALS {
+    height: 98%;
 }
 
 .OPERATOR, .CLEAR, .EQUALS {

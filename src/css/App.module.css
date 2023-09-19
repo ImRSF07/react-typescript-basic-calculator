@@ -5,6 +5,7 @@
 }
 
 .results__container {
+    width: 93%;
     padding: 0.5rem;
     border: solid black 2px;
     margin-bottom: 0.5rem;
