@@ -15,6 +15,7 @@ const initContextState: UseCalculatorContextType = {
   inputValue: () => {},
   clearValues: () => {},
   clearErrors: () => {},
+  calculateResult: () => {}
 };
 
 const CalculatorContext = createContext(initContextState);
