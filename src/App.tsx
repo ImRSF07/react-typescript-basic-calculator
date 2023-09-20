@@ -1,16 +1,19 @@
-import styles from './css/App.module.css'
+import { ToastContainer } from 'react-toastify';
 
-import ButtonContainers from './components/ButtonContainers';
-import Header from './components/Header';
-import ResultField from './components/ResultField';
+import 'react-toastify/dist/ReactToastify.css';
+
+import Calculator from './components/Calculator';
+
+import { CalculatorProvider } from './context/CalculatorContext';
 
 function App() {
   return (
-    <div className={styles["main-wrapper"]}>
-      <Header />
-      <ResultField />
-      <ButtonContainers />
-    </div>
+    <CalculatorProvider>
+      <>
+        <ToastContainer />
+        <Calculator />
+      </>
+    </CalculatorProvider>
   );
 }
 

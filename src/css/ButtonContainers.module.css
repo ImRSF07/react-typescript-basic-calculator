@@ -1,5 +1,22 @@
-.wrapper {
+.main__wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.operator__wrapper {
     width: 100%;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
+}
+
+.button__group__wrapper {
+    display: grid;
+    grid-template-columns: 75% 25%;
+
+}
+
+.button__group__1 {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 25% 25% 25% 25%;
 }
